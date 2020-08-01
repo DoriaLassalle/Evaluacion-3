@@ -7,14 +7,14 @@ public class Huevo extends Tablero {			//esta clase define cada lanzamiento real
 	private int ubicacion;
 	
 	
-	
+	/*
 
 	@Override
 	public void lanzarHuevo() {
 		// TODO Auto-generated method stub
 		super.lanzarHuevo();
 	}
-
+*/
 	@Override
 	public void calcularPuntaje() {
 		// TODO Auto-generated method stub
@@ -41,5 +41,5 @@ public class Huevo extends Tablero {			//esta clase define cada lanzamiento real
 
 
 
-}
+}// FIN CLASE
 

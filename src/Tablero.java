@@ -1,91 +1,163 @@
 import java.util.*;
 
 
-
-
 public class Tablero {
 	Scanner leer = new Scanner(System.in);
 	
 	private int fila;
 	private int columna;
-	
+	private char [][] matriztablero = new char [15][15];
+	int puntaje=0;
 	
 	public ArrayList<Carro> vehiculos =new ArrayList <Carro>(18);		//Cantidad ya definida
 	public ArrayList<Huevo> proyectiles=new ArrayList <Huevo>()	;		//sin limite
+			
+			
+	public void Tablero() {				//CONSTRUCTOR X DEFECTO
 	
-	public void Tablero() {
-				
-		}
-		
+			
+	}
+	
+	/*	
 	public void crearCarro() {			
-		
-		
+				
 		Carro kromi1 = new Kromi();
-		vehiculos.add(new Carro());			
+		//vehiculos.add(new Carro());			
 		
 		fila= (int) (Math.random()*14+1);
 		System.out.println(fila);
 
 		columna= (int) (Math.random()*14+1);
-		System.out.println(columna);
+		System.out.println(columna);		
 
+		} //FIN CREAR CARRO */
+	
+	public void insertarTrupalla() {
+	do {
+	   Carro trupalla1 =new Trupalla();
+		
+		fila= (int) (Math.random()*15);
+				
+		columna= (int) (Math.random()*15);
+				
+		matriztablero[fila][columna]='T';
+		
+		}while (!(validarCelda(fila, columna)));
+	}
+	
+	
+	
+	public void insertarKromi() {
+	//do {
+		Carro kromi1 =new Kromi();
+		
+		fila= (int) (Math.random()*15);
+		columna= (int) (Math.random()*15);
+		if (fila<=12) {
+			matriztablero[fila][columna]='K';
+			matriztablero[fila+1][columna]='K';	
+			matriztablero[fila+2][columna]='K';	
+		}else if (fila==13) {
+				matriztablero[fila][columna]='K';
+				matriztablero[fila+1][columna]='K';	
+				matriztablero[fila-1][columna]='K';	
+			}else if (fila==14) {
+					matriztablero[fila][columna]='K';
+					matriztablero[fila-1][columna]='K';	
+					matriztablero[fila-2][columna]='K';	
+			}
+	//	}while ();
+	}
+	
+	public void insertarCaguano() {
+//do {	
+		Carro caguano1 =new Caguano();
+		
+		fila= (int) (Math.random()*15);
+		columna= (int) (Math.random()*15);
+		if (columna<=13) {
+			matriztablero[fila][columna]='C';
+			matriztablero[fila][columna+1]='C';	
+		}else if (columna==14) {
+				matriztablero[fila][columna]='C';
+				matriztablero[fila][columna-1]='C';	
+							
 		}
+		
+	//}while (   );
+} 
 	
 	
 	
 	
 	public void dibujartablero() {
-		
-
-	char [][] matriz = new char [15][15];
-	
-	
-		matriz[fila][columna]='K';
-		
-			
-	for (int i = 0; i < 15; i++) {
-	
-		for (int j = 0; j < 15; j++) {
-	
-			System.out.print("|");
-			System.out.print("_" + matriz[i][j] + "_");
+		for (int i = 0; i < 10; i++) {
+			insertarTrupalla();
+		}
+	/*	
+		for (int i = 0; i < 5; i++) {
+			insertarCaguano();
 		}
 		
+		for (int i = 0; i < 3; i++) {
+			insertarKromi();
+		} */
+		 	
+			for (int i = 0; i < 15; i++) {
+				for (int j = 0; j < 15; j++) {
+					System.out.print("|");
+					System.out.print("_" + matriztablero[i][j] + "_");
+				}
+				System.out.println("|");
+		 	}
 		
-		System.out.println("|");
+	}//FIN DIBUJAR TABLERO
+	
+	public boolean validarCelda(int fila, int columna) {
+		if (matriztablero[fila][columna]!='T') {
+			return true;
+		}else {
 		
-	}
-		
-		
-		
-	}
+		return false;
+		}
+	}//FIN VALIDAR CELDA 
 	
 	
+	/*
+	public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMIENTO
+								//ASIGNA PUNTAJE Y ALMACENA EN LISTA CORRESPONDIENTE 
 	
-	public void lanzarHuevo() { //crea la instancia de la clase Huevo, solicita la coordenada de lanzamiento
-								//asigna el puntaje al movimiento y la almacena en la lista correspondiente
 		
-		System.out.println("Ingrese las coordenadas: ");
-		
-		System.out.println("Ingrese la fila: ");
+		System.out.println("         ****************************          ");
+		System.out.println("      *** COORDENADAS DE LANZAMIENTO ***       ");
+		System.out.println("         ****************************          ");
+		System.out.println("***   Ingresa N° de Fila (Entre 1 y 15):    ***");
 		fila=leer.nextInt();
-		
-		System.out.println("Ingrese la columna: ");
+		System.out.println("***  Ingresa N° de Columna (Entre 1 y 15):  ***");
 		columna=leer.nextInt();
+		if(fila=='T' && columna =='T') {
+			puntaje =puntaje+1;
+		}else if (fila=='C'&& columna=='C') {
+				puntaje=puntaje+2;
+			}else if (fila=='K' && columna=='K') {
+					puntaje=puntaje+3;
+			}
 		
-	}
+		
+	}//FIN LANZAR HUEVO		*/
 	
-	public void mostrarMatriz () { //muestra como matriz c/u de los carros existentes y los lanzamientos registrados hasta el mommento
-									//Donde hubo lanzamiento debe haber H
-									//luego calcula el puntaje obt hasta el momento
+	public void mostrarMatriz () { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO
+									//CALCULA PUNTAJE HASTA EL MOMENTO
 			
-	}
+	}//FIN MOSTRAR MATRIZ
 	
-	public void calcularPuntaje() { //Suma los puntajes asignados a cada lanzamiento y loes entrega como resultado.
-									//debe ser visible solo denro de la clase y utilizado en todos los metodos de la misma clase.
-									//clase Huevo es la que define cada lanzamiento realizado dentro del tablero
+	public void calcularPuntaje() { //SUMA Y ENTREGA LOS PUNTAJES DE CADA LANZAMIENTO
+									//VISIBLE Y USADA  DENTRO DE LA CLASE
+									//CLASE HUEVO DEFINE CADA LANZAMIENTO REALIZADO
+	//SI HUEVO CAE EN 3a TRUPALLA ADD 10 PUNTOS; EN 2o CAGUANO ADD 7 PUNTOS
 		
-	}
+		
+	}//FIN CALCULARPUNTAJE
 
 
 	public int getFila() {
@@ -132,4 +204,4 @@ public class Tablero {
 	
 	
 	
-}
+}//FIN CLASE

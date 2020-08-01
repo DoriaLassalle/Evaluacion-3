@@ -12,6 +12,7 @@ public class Trupalla extends Carro{
 		super();
 		
 	}
+	
 	public Trupalla(int ocupantes, int fecha, int fila, int columna, int armadura, String nombre) {
 		super(ocupantes, fecha, fila, columna);
 			this.armadura=armadura;
@@ -35,4 +36,4 @@ public class Trupalla extends Carro{
 	
 	
 	
-}
+}//FIN CLASE

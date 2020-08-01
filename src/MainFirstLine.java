@@ -2,80 +2,69 @@ import java.util.*;
 public class MainFirstLine {
 
 	Scanner leer = new Scanner(System.in);
-	
-	
-	
+		
 	
 	public static void main(String[] args) {
+				/**ALEATORIO 3 KROMI  3 CELDAS VERTICALES
+		 		*						5 CAGUANO  2 CELDAS HORIZ
+		 		*						  10 TRUPALLA 1 CELDA
+		 		*		 		NO VEHICULO ENCIMA DE OTRO		
+		 		*SE PUEDEN CREAR OTRAS CLSES
+		 		*MENU DE ACCION REPETITIVO HASTA QUE EL USUARIO LO DECIDA					
+		 		**/
+ 
+				
+			Tablero tablero1= new Tablero(); 
+			tablero1.dibujartablero();			//DIBUJAMOS TABLERO
 		
-		/**Matriz compuesta de caracteres de 15F y 15C
-		 		*disponer de forma aleatoria: 3 Kromis c/u usa 3 celdas verticales se defino con K
-		 		*							  5 Caguanos c/u usa 2 espacios horizontales, se definen con C
-		 		*							  10 trupallasmc/u 1 celda de la matriz, se define con T
-		 		*no pueden existir vehiculos dentro de otros								
-		*la matriz se puede declarar como atributo de alguna de las clases que tenemos
-		*se pueden considerar otras clases
-		*Menú con cada accion del programa
-		*se muestra cuantas veces sea necesario hasta que el usuario indique lo contrario.
-		 * 
+			//menuPrincipal();					//LLAMAMOS MENU PRINCIPAL
 		
-		 **/
+		//	tablero1.crearCarro();		
 		
+	
 		
-		
-		
-		
-		
-		
-		
-		
-		Tablero tablero1= new Tablero();
-		
-		tablero1.dibujartablero();
-		
-		//menuPrincipal();
-		
-		tablero1.crearCarro();
-		
-		
-		
-		
-		} //FIN DE MAIN
+	} //FIN DE MAIN
 		
 	
 	
-		public static void  menuPrincipal() {
+	public static void  menuPrincipal() {
 			
 			int op=0;
 			
 		//do {
 			
-			System.out.println("*******// OSCURILANDIA// *********");
-			System.out.println("* 1.- LANZAR HUEVO        *");
-			System.out.println("* 2.- MOSTRAR PUNTAJE     *");
-			System.out.println("* 3.-SALIR                       *");
+			System.out.println("*******\\ OSCURILANDIA //*********");
+			System.out.println("*        ==============          *");
+			System.out.println("*       1. LANZAR HUEVO          *");
+			System.out.println("*   2.MOSTRAR UBICACION CARROS   *");
+			System.out.println("*   3.MOSTRAR PUNTAJE Y DATOS    *");
+			System.out.println("*           4. SALIR             *");
 			System.out.println("**********************************");
-			System.out.print("Elegir OPcion: ");
+			System.out.println("**                              **");
+			System.out.println("****   SELECCIONA TU OPCION   ****");
+			System.out.println("**                              **");
+			System.out.println("**********************************");
 			//op= leer.nextInt();
 			
 			//switch (op) {
 				
 			//case 1:	lanzarHuevo();break;
 							
-			//case 2:	calcularPuntaje();break;
+			//case 2:	mostrarUbicacion();break; CREAR ESTE METODO
 			
-			//case 3: System.out.println("Gracias!!! por usar el programa"); break;
+			//case 3:	calcularPuntaje(); break;
 			
-			//default: System.out.println("Error"); break;
+			//CASE 4:	System.out.println("Gracias!!! por usar el programa"); break;
+			
+			//default: 	System.out.err.println("Error"); break;
 			
 			//}
 			
-	//}while(op!=3);
+	//}while(op!=4);
 
-	
 
-}
+	} //FIN MENU PRINCIPAL
 
-}
+}// FIN CLASE
 	
 	
