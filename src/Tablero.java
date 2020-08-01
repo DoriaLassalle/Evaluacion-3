@@ -8,9 +8,9 @@ public class Tablero {
 	private int columna;
 	private char [][] matriztablero = new char [15][15];
 	int puntaje=0;
-	
-	public ArrayList<Carro> vehiculos =new ArrayList <Carro>(18);		//Cantidad ya definida
-	public ArrayList<Huevo> proyectiles=new ArrayList <Huevo>()	;		//sin limite
+		
+	private ArrayList<Carro> vehiculos =new ArrayList <Carro>(18);		//Cantidad ya definida
+	private ArrayList<Huevo> proyectiles=new ArrayList <Huevo>()	;		//sin limite
 			
 			
 	public void Tablero() {				//CONSTRUCTOR X DEFECTO
@@ -34,21 +34,19 @@ public class Tablero {
 	
 public void insertarTrupalla() {
 	
-		Carro trupalla1 =new Trupalla();
+		Trupalla trupalla1 =new Trupalla();
+		Caguano caguano2 =new Caguano();
+		
+		
+		vehiculos.add(trupalla1);
+		vehiculos.add(caguano2);
 		
 		fila= (int) (Math.random()*15);	
 		columna= (int) (Math.random()*15);
 		
 		matriztablero[fila][columna]='T';
 		
-		while (!(validarCelda(fila, columna))) {
-			matriztablero[fila][columna]='T';
-						
-			fila= (int) (Math.random()*15);	
-			columna= (int) (Math.random()*15);
 			
-		}
-		
 }
 	
 
@@ -56,6 +54,8 @@ public void insertarTrupalla() {
 public void insertarCaguano() {
 		do {	
 				Carro caguano1 =new Caguano();
+				vehiculos.add(caguano1);
+				
 				
 				fila= (int) (Math.random()*15);
 				columna= (int) (Math.random()*15);
@@ -80,6 +80,7 @@ public void insertarCaguano() {
 	public void insertarKromi() {
 	//do {
 		Carro kromi1 =new Kromi();
+		vehiculos.add(kromi1);
 		
 		fila= (int) (Math.random()*15);
 		columna= (int) (Math.random()*15);

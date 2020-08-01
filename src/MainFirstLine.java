@@ -1,7 +1,7 @@
 import java.util.*;
 public class MainFirstLine {
 
-	Scanner leer = new Scanner(System.in);
+	public static Scanner leer = new Scanner(System.in);
 		
 	
 	public static void main(String[] args) {
@@ -17,12 +17,9 @@ public class MainFirstLine {
 			Tablero tablero1= new Tablero(); 
 			tablero1.dibujartablero();			//DIBUJAMOS TABLERO
 		
-			//menuPrincipal();					//LLAMAMOS MENU PRINCIPAL
+			menuPrincipal();					//LLAMAMOS MENU PRINCIPAL
 		
-		//	tablero1.crearCarro();		
-		
-	
-		
+			
 	} //FIN DE MAIN
 		
 	
@@ -31,7 +28,7 @@ public class MainFirstLine {
 			
 			int op=0;
 			
-		//do {
+		do {
 			
 			System.out.println("*******\\ OSCURILANDIA //*********");
 			System.out.println("*        ==============          *");
@@ -44,27 +41,52 @@ public class MainFirstLine {
 			System.out.println("****   SELECCIONA TU OPCION   ****");
 			System.out.println("**                              **");
 			System.out.println("**********************************");
-			//op= leer.nextInt();
+			op= leer.nextInt();
 			
-			//switch (op) {
+			switch (op) {
 				
-			//case 1:	lanzarHuevo();break;
+			case 1:	lanzarHuevo();break;
 							
-			//case 2:	mostrarUbicacion();break; CREAR ESTE METODO
+			case 2:	mostrarMatriz();break; //CREAR ESTE METODO
 			
-			//case 3:	calcularPuntaje(); break;
+			case 3:	mostrarPuntajeydatos(); 
+			break;
+				
+			case 4:	System.out.println("Gracias!!! por usar el programa"); break;
 			
-			//CASE 4:	System.out.println("Gracias!!! por usar el programa"); break;
+			default: System.out.println("Error"); break;
 			
-			//default: 	System.out.err.println("Error"); break;
+			}
 			
-			//}
-			
-	//}while(op!=4);
+		}while(op!=4);
 
 
 	} //FIN MENU PRINCIPAL
 
+public static void lanzarHuevo() {
+	
+
+}
+
+public static void mostrarMatriz() {
+	
+}
+	
+public static void mostrarPuntajeydatos() {
+	Tablero tablero2 =new Tablero();
+	tablero2.insertarTrupalla();
+	
+	for (Carro index:tablero2.getVehiculos()) {
+		
+		System.out.println(index.toString());
+	}
+	
+	
+	
+}
+	
+	
+	
 }// FIN CLASE
 	
 	

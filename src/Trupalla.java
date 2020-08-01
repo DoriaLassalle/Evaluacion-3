@@ -31,9 +31,14 @@ public class Trupalla extends Carro{
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return "Trupalla [armadura=" + armadura + ", nombre=" + nombre + ", getArmadura()=" + getArmadura()
+				+ ", getNombre()=" + getNombre() + ", getOcupantes()=" + getOcupantes() + ", getFecha()=" + getFecha()
+				+ ", getFila()=" + getFila() + ", getColumna()=" + getColumna() + "]";
+	}
+
 	
 	
 }//FIN CLASE
