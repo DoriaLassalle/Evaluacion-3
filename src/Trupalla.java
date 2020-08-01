@@ -1,10 +1,10 @@
 
 public class Trupalla extends Carro{
 
-	public final int ESPACIOT=(1*1); //ocupa 1 metro cuadrado
+	public final int ESPACIOT=1; //1 CELDA
 	
-	int armadura;			//nivel de armadura entre 1 y 5
-	String nombre;			//nombre usuario que manipula la Trupalla
+	int armadura;			//NIVEL ENTRE 1 - 5
+	String nombre;			//NOMBRE CONDUCTOR
 	
 	
 	

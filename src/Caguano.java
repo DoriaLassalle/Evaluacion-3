@@ -2,10 +2,10 @@
 public class Caguano extends Carro{
 		
 	
-		public final int LARGOC=2; //metros
+		public final int LARGOC=2;    //CELDAS HORIZONTALES
 		
-		int alcance;					//del confeti
-		String color;
+		int alcance;					//DEL CONFETI
+		String colorconfeti;         
 		
 	
 
@@ -14,10 +14,11 @@ public class Caguano extends Carro{
 		
 	}
 
-	public Caguano(int ocupantes, int fecha, int fila, int columna, int alcance, String color ) {
+	public Caguano(int ocupantes, int fecha, int fila, int columna, int alcance, String colorconfeti ) {
 		super(ocupantes, fecha, fila, columna);
 			this.alcance=alcance;
-			this.color=color;	
+			this.colorconfeti=colorconfeti;
+		
 					
 	}
 	
@@ -33,17 +34,17 @@ public class Caguano extends Carro{
 		this.alcance = alcance;
 	}
 
-	public String getColor() {
-		return color;
+	public String getColorconfeti() {
+		return colorconfeti;
 	}
 
-	public void setColor(String color) {
-		this.color = color;
+	public void setColorconfeti(String colorconfeti) {
+		this.colorconfeti = colorconfeti;
 	}
 
 	@Override
 	public String toString() {
-		return "Caguano [LARGOC=" + LARGOC + ", confeti=" + alcance + ", color=" + color + "]";
+		return "Caguano [LARGOC=" + LARGOC + ", confeti=" + alcance + ", colorconfeti=" + colorconfeti + "]";
 	}
 	
 	

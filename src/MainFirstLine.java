@@ -1,6 +1,11 @@
-
+import java.util.*;
 public class MainFirstLine {
 
+	Scanner leer = new Scanner(System.in);
+	
+	
+	
+	
 	public static void main(String[] args) {
 		
 		/**Matriz compuesta de caracteres de 15F y 15C
@@ -13,8 +18,64 @@ public class MainFirstLine {
 		*Menú con cada accion del programa
 		*se muestra cuantas veces sea necesario hasta que el usuario indique lo contrario.
 		 * 
-		 * 
+		
 		 **/
-	}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Tablero tablero1= new Tablero();
+		
+		tablero1.dibujartablero();
+		
+		//menuPrincipal();
+		
+		tablero1.crearCarro();
+		
+		
+		
+		
+		} //FIN DE MAIN
+		
+	
+	
+		public static void  menuPrincipal() {
+			
+			int op=0;
+			
+		//do {
+			
+			System.out.println("*******// OSCURILANDIA// *********");
+			System.out.println("* 1.- LANZAR HUEVO        *");
+			System.out.println("* 2.- MOSTRAR PUNTAJE     *");
+			System.out.println("* 3.-SALIR                       *");
+			System.out.println("**********************************");
+			System.out.print("Elegir OPcion: ");
+			//op= leer.nextInt();
+			
+			//switch (op) {
+				
+			//case 1:	lanzarHuevo();break;
+							
+			//case 2:	calcularPuntaje();break;
+			
+			//case 3: System.out.println("Gracias!!! por usar el programa"); break;
+			
+			//default: System.out.println("Error"); break;
+			
+			//}
+			
+	//}while(op!=3);
+
+	
 
 }
+
+}
+	
+	

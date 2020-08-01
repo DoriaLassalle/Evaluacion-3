@@ -2,9 +2,9 @@
 public class Kromi extends Carro {
 	
 
-	public final int LARGOK=3;		//metros
+	public final int LARGOK=3;		//CELDAS HACIA ABAJO
 
-	int fabricacion;					//año
+	int fabricacion;					//AÑO
 	String marca;
 	int largo;
 	
@@ -70,8 +70,7 @@ public class Kromi extends Carro {
 
 	@Override
 	public String toString() {
-		return "Kromi [LARGOK=" + LARGOK + ", fabricacion=" + fabricacion + ", marca=" + marca + ", largo=" + largo
-				+ "]";
+		return "Kromi marca=" + marca + ", fabricacion=" + fabricacion + ", LARGOK=" + LARGOK;
 	}
 
 
