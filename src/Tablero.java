@@ -32,18 +32,48 @@ public class Tablero {
 
 		} //FIN CREAR CARRO */
 	
-	public void insertarTrupalla() {
-	do {
-	   Carro trupalla1 =new Trupalla();
+public void insertarTrupalla() {
+	
+		Carro trupalla1 =new Trupalla();
 		
-		fila= (int) (Math.random()*15);
-				
+		fila= (int) (Math.random()*15);	
 		columna= (int) (Math.random()*15);
-				
+		
 		matriztablero[fila][columna]='T';
 		
+		while (!(validarCelda(fila, columna))) {
+			matriztablero[fila][columna]='T';
+						
+			fila= (int) (Math.random()*15);	
+			columna= (int) (Math.random()*15);
+			
+		}
+		
+}
+	
+
+
+public void insertarCaguano() {
+		do {	
+				Carro caguano1 =new Caguano();
+				
+				fila= (int) (Math.random()*15);
+				columna= (int) (Math.random()*15);
+				if (columna<=13) {
+					matriztablero[fila][columna]='C';
+					matriztablero[fila][columna+1]='C';	
+				}else if (columna==14) {
+						matriztablero[fila][columna]='C';
+						matriztablero[fila][columna-1]='C';	
+									
+				}
+				
 		}while (!(validarCelda(fila, columna)));
-	}
+			
+	
+	
+	
+}	
 	
 	
 	
@@ -69,24 +99,7 @@ public class Tablero {
 	//	}while ();
 	}
 	
-	public void insertarCaguano() {
-//do {	
-		Carro caguano1 =new Caguano();
-		
-		fila= (int) (Math.random()*15);
-		columna= (int) (Math.random()*15);
-		if (columna<=13) {
-			matriztablero[fila][columna]='C';
-			matriztablero[fila][columna+1]='C';	
-		}else if (columna==14) {
-				matriztablero[fila][columna]='C';
-				matriztablero[fila][columna-1]='C';	
-							
-		}
-		
-	//}while (   );
-} 
-	
+
 	
 	
 	
@@ -94,7 +107,7 @@ public class Tablero {
 		for (int i = 0; i < 10; i++) {
 			insertarTrupalla();
 		}
-	/*	
+		/*
 		for (int i = 0; i < 5; i++) {
 			insertarCaguano();
 		}
@@ -114,10 +127,10 @@ public class Tablero {
 	}//FIN DIBUJAR TABLERO
 	
 	public boolean validarCelda(int fila, int columna) {
-		if (matriztablero[fila][columna]!='T') {
+		if (matriztablero[fila][columna]=='T'){
 			return true;
-		}else {
-		
+			} else {
+	
 		return false;
 		}
 	}//FIN VALIDAR CELDA 
