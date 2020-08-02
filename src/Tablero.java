@@ -11,113 +11,112 @@ public class Tablero {
 		
 	private ArrayList<Carro> vehiculos =new ArrayList <Carro>(18);		//Cantidad ya definida
 	private ArrayList<Huevo> proyectiles=new ArrayList <Huevo>()	;		//sin limite
-			
-			
-	public void Tablero() {				//CONSTRUCTOR X DEFECTO
+		
 	
-			
+public Tablero() {				//CONSTRUCTOR X DEFECTO
+	
+	
+	for (int i = 0; i < 10; i++) { // INSERTA 10 TRUPALLAS
+		insertarTrupalla();
 	}
 	
-	/*	
-	public void crearCarro() {			
-				
-		Carro kromi1 = new Kromi();
-		//vehiculos.add(new Carro());			
-		
-		fila= (int) (Math.random()*14+1);
-		System.out.println(fila);
+	for (int i = 0; i < 5; i++) { // INSERTA 5 CAGUANOS
+		insertarCaguano();
+	}
+	
+	for (int i = 0; i < 3; i++) { // INSERTA 3 KROMIS
+		insertarKromi();
+	} 
+	 	
+			
+}
+	
+public void crearCarro() {							
+			
 
-		columna= (int) (Math.random()*14+1);
-		System.out.println(columna);		
-
-		} //FIN CREAR CARRO */
+} //FIN CREAR CARRO 
 	
 public void insertarTrupalla() {
-	
-		Trupalla trupalla1 =new Trupalla();
-		Caguano caguano2 =new Caguano();
+		fila=0;
+		columna=0;
 		
-		
-		vehiculos.add(trupalla1);
-		vehiculos.add(caguano2);
-		
-		fila= (int) (Math.random()*15);	
-		columna= (int) (Math.random()*15);
-		
-		matriztablero[fila][columna]='T';
-		
+		do {
 			
+			fila= (int) (Math.random()*15);	
+			columna= (int) (Math.random()*15);
+		
+		}while (!validarCelda(fila, columna)); // VERIFICO SI LA CELDA ESTA VACIA
+		
+		
+		matriztablero[fila][columna]='T';   // INSERTO LA TRUPALLA EN TABLERO
+		
+
+		Trupalla trupalla1 =new Trupalla(); // CREO LA TRUPALLA Y LA AGREDO AL ARRAY
+		vehiculos.add(trupalla1);
 }
 	
 
 
 public void insertarCaguano() {
-		do {	
-				Carro caguano1 =new Caguano();
-				vehiculos.add(caguano1);
-				
-				
-				fila= (int) (Math.random()*15);
-				columna= (int) (Math.random()*15);
-				if (columna<=13) {
-					matriztablero[fila][columna]='C';
-					matriztablero[fila][columna+1]='C';	
-				}else if (columna==14) {
-						matriztablero[fila][columna]='C';
-						matriztablero[fila][columna-1]='C';	
-									
+			fila=0;
+			columna=0;
+	
+		do {				
+			fila= (int) (Math.random()*15);
+			columna= (int) (Math.random()*14);
+			
+		}while (!validarCelda(fila, columna)||!validarCelda(fila, columna+1));
+	
+		
+		if (columna<=13) {
+			matriztablero[fila][columna]='C';
+			matriztablero[fila][columna+1]='C';	
+			}else if (columna==14) {
+				matriztablero[fila][columna]='C';
+				matriztablero[fila][columna-1]='C';		
 				}
 				
-		}while (!(validarCelda(fila, columna)));
-			
+		Carro caguano1 =new Caguano();
+		vehiculos.add(caguano1);
 	
-	
-	
+		
 }	
 	
 	
 	
-	public void insertarKromi() {
-	//do {
-		Carro kromi1 =new Kromi();
-		vehiculos.add(kromi1);
+public void insertarKromi() {
+		fila=0;
+		columna=0;
 		
-		fila= (int) (Math.random()*15);
+	do {
+	
+		fila= (int) (Math.random()*13);
 		columna= (int) (Math.random()*15);
-		if (fila<=12) {
-			matriztablero[fila][columna]='K';
-			matriztablero[fila+1][columna]='K';	
-			matriztablero[fila+2][columna]='K';	
-		}else if (fila==13) {
-				matriztablero[fila][columna]='K';
-				matriztablero[fila+1][columna]='K';	
-				matriztablero[fila-1][columna]='K';	
-			}else if (fila==14) {
-					matriztablero[fila][columna]='K';
-					matriztablero[fila-1][columna]='K';	
-					matriztablero[fila-2][columna]='K';	
-			}
-	//	}while ();
-	}
+
+	}while (!validarCelda(fila, columna)||!validarCelda(fila+1, columna)||!validarCelda(fila+2, columna));
+		
+		matriztablero[fila][columna]='K';
+		matriztablero[fila+1][columna]='K';	
+		matriztablero[fila+2][columna]='K';	
+	
+				
+		Carro kromi1 =new Kromi();
+		vehiculos.add(kromi1);		
+		
+}
 	
 
 	
 	
 	
-	public void dibujartablero() {
-		for (int i = 0; i < 10; i++) {
-			insertarTrupalla();
-		}
-		/*
-		for (int i = 0; i < 5; i++) {
-			insertarCaguano();
-		}
-		
-		for (int i = 0; i < 3; i++) {
-			insertarKromi();
-		} */
-		 	
-			for (int i = 0; i < 15; i++) {
+public void dibujartablero() {
+	
+	
+		System.out.println("============================================================");
+		System.out.println("***************** TABLERO  DE EFECTIVOS PKS ****************");
+		System.out.println("____________________________________________________________");
+							
+			for (int i = 0; i < 15; i++) {  //DIBUJA EL TABLERO
 				for (int j = 0; j < 15; j++) {
 					System.out.print("|");
 					System.out.print("_" + matriztablero[i][j] + "_");
@@ -125,40 +124,52 @@ public void insertarCaguano() {
 				System.out.println("|");
 		 	}
 		
-	}//FIN DIBUJAR TABLERO
+}//FIN DIBUJAR TABLERO
 	
-	public boolean validarCelda(int fila, int columna) {
-		if (matriztablero[fila][columna]=='T'){
+	
+	
+	
+public boolean validarCelda(int fila, int columna) {
+	
+		if (matriztablero[fila][columna]=='T' || matriztablero[fila][columna]=='C' || matriztablero[fila][columna]=='K') {
+			return false;
+		}else{
 			return true;
-			} else {
-	
-		return false;
 		}
-	}//FIN VALIDAR CELDA 
+
+				
+}//FIN VALIDAR CELDA 
 	
-	
-	/*
-	public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMIENTO
+
+public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMIENTO
 								//ASIGNA PUNTAJE Y ALMACENA EN LISTA CORRESPONDIENTE 
 	
-		
-		System.out.println("         ****************************          ");
-		System.out.println("      *** COORDENADAS DE LANZAMIENTO ***       ");
-		System.out.println("         ****************************          ");
-		System.out.println("***   Ingresa N° de Fila (Entre 1 y 15):    ***");
+		System.out.println("*****************************     ");
+		System.out.println("*COORDENADAS DE LANZAMIENTO *     ");
+		System.out.println("*****************************     ");
+		System.out.print("***  Ingresa N° de Fila   (Entre 0 y 14):");
 		fila=leer.nextInt();
-		System.out.println("***  Ingresa N° de Columna (Entre 1 y 15):  ***");
+		System.out.print("***  Ingresa N° de Columna (Entre 0 y 14):");
 		columna=leer.nextInt();
+		
+		
 		if(fila=='T' && columna =='T') {
-			puntaje =puntaje+1;
+			System.out.println("...LE DISTE A UN TRUPALLA.LE SACASTE LA CHUCHA...");
+			puntaje =puntaje+1; 
 		}else if (fila=='C'&& columna=='C') {
+			System.out.println("...LE DISTE A UN CAGUANO .LE SACASTE LA CONCHA...");
 				puntaje=puntaje+2;
 			}else if (fila=='K' && columna=='K') {
+				System.out.println("...LE DISTE A UN KROMI.LE SACASTE LA CRESTA...");
 					puntaje=puntaje+3;
 			}
 		
 		
-	}//FIN LANZAR HUEVO		*/
+}//FIN LANZAR HUEVO		*/
+	
+	
+	
+	
 	
 	public void mostrarMatriz () { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO
 									//CALCULA PUNTAJE HASTA EL MOMENTO
