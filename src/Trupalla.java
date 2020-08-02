@@ -34,9 +34,9 @@ public class Trupalla extends Carro{
 
 	@Override
 	public String toString() {
-		return "Trupalla [armadura=" + armadura + ", nombre=" + nombre + ", getArmadura()=" + getArmadura()
-				+ ", getNombre()=" + getNombre() + ", getOcupantes()=" + getOcupantes() + ", getFecha()=" + getFecha()
-				+ ", getFila()=" + getFila() + ", getColumna()=" + getColumna() + "]";
+		return "Trupalla Nivel de armadura: " + armadura + " Conducida por " + nombre + " y tiene " + getOcupantes()
+				  + " Ocupantes. Su fecha de fabricación es: " + getFecha()+".";
+				
 	}
 
 	

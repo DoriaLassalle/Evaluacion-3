@@ -7,11 +7,20 @@ public class MainFirstLine {
 	public static void main(String[] args) {
 		
  	
-		
+		System.out.println("************************************************************************************");
+		System.out.println("*                      ¡¡BIENVENIDO A OSCURILANDIA!!                               *");
+		System.out.println("*                                                                                  *");
+		System.out.println("*       En Oscurilandia se encuentra desplegada la ÉLITE DE SEGURIDAD PKS,         *");
+		System.out.println("*            para restaurar el orden en torno a la Cámara Secreta.                 *");
+		System.out.println("* La Flota de vehículos se encuentra desplegada en el tablero y está compuesta por *");
+		System.out.println("*                      KROMIS, CAGUANOS Y TRUPALLAS                                *");
+		System.out.println("*          Deberás derrotarlas con tus proyectiles...Los HUEVOS.                   *");
+		System.out.println("*         Lánzalos con tu mejor precisión y suma el máximo de puntos.              *");
+		System.out.println("*                              ¡¡A JUGAR!!                                         *");
+		System.out.println("*                                                                                  *");
+		System.out.println("************************************************************************************");
 									
-			tablero.dibujartablero();			//DIBUJAMOS TABLERO
-		
-			menuPrincipal();					//LLAMAMOS MENU PRINCIPAL
+		menuPrincipal();					//LLAMAMOS MENU PRINCIPAL
 		
 			
 	} //FIN DE MAIN
@@ -23,32 +32,33 @@ public class MainFirstLine {
 			int op=0;
 			
 		do {
-			System.out.println("");
-			System.out.println("*******\\ OSCURILANDIA //*********");
-			System.out.println("*        ==============          *");
-			System.out.println("*   1.LANZAR HUEVO              *");
-			System.out.println("*   2.MOSTRAR UBICACION CARROS   *");
-			System.out.println("*   3.MOSTRAR PUNTAJE Y DATOS    *");
-			System.out.println("*   4. SALIR                     *");
-			System.out.println("**********************************");
+		
+			System.out.println("*****   ELIGE UNA OPCION:    *****");
 			System.out.println("**                              **");
-			System.out.println("****   SELECCIONA TU OPCION   ****");
+			System.out.println("*   1.INICIAR JUEGO              *");
+			System.out.println("*   2.LANZAR HUEVO               *");
+			System.out.println("*   3.MOSTRAR UBICACION CARROS   *");
+			System.out.println("*   4.MOSTRAR PUNTAJE Y DATOS    *");
+			System.out.println("*   5.SALIR                      *");
 			System.out.println("**                              **");
 			System.out.println("**********************************");
+			
 			System.out.print(" :" );
 			op=leer.nextInt();
 			
 			switch (op) {
-				
-			case 1:	lanzarProyectil();break;
+			
+			case 1:	tablero.dibujartablero();;break;		//DIBUJAMOS TABLERO
+			
+			case 2:	lanzarProyectil();break;
 							
-			case 2:	mostrarMatriz();break; 
+			case 3:	mostrarMatriz();break; 
 			
-			case 3:	mostrarPuntajeydatos(); break;
+			case 4:	mostrarPuntajeydatos(); break;
 				
-			case 4:	System.out.println("Gracias!!! por usar el programa"); break;
+			case 5:	System.out.println("¡¡¡GRACIAS POR USAR EL PROGRAMA!!!"); break;
 			
-			default: System.err.println("Error selecione Opcion Correcta"); break;
+			default: System.err.println("Error! Selecione Opcion Correcta"); break;
 			
 			}
 			
