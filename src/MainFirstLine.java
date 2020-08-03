@@ -50,8 +50,7 @@ public class MainFirstLine {
 			
 			switch (op) {
 			
-			case 1:	mostrarMatriz();		//DIBUJAMOS TABLERO
-					lanzarProyectil();break;
+			case 1:	lanzarProyectil();break;	
 										
 			case 2:	tablero.dibujartablero();break; 
 			
@@ -67,25 +66,19 @@ public class MainFirstLine {
 
 
 	} //FIN MENU PRINCIPAL
+
+	
+	
 	
 	
 public static void lanzarProyectil() {
+			
 	tablero.lanzarHuevo();
-	
-	
-}
-	
-	
-	
-
-public static void mostrarMatriz() {
-	
-	 	tablero.mostrarMatrizactualizada(tablero.getFila(), tablero.getColumna());
-	
-	
-	
+	tablero.mostrarMatrizactualizada(tablero.getFila(), tablero.getColumna());
 	
 }
+	
+	
 	
 public static void mostrarPuntajeydatos() {
 
