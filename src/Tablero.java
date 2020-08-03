@@ -7,10 +7,11 @@ public class Tablero {
 	private int fila;
 	private int columna;
 	private char [][] matriztablero = new char [15][15];
+	private char [][] matrizghost= new char [15][15];
 	int puntaje=0;
 		
 	private ArrayList<Carro> vehiculos =new ArrayList <Carro>(18);		//Cantidad ya definida
-	private ArrayList<Huevo> proyectiles=new ArrayList <Huevo>()	;		//sin limite
+	private ArrayList<Huevo> proyectiles=new ArrayList <Huevo>();		//sin limite
 		
 	
 public Tablero() {				//CONSTRUCTOR X DEFECTO
@@ -51,7 +52,7 @@ public void insertarTrupalla() {
 		matriztablero[fila][columna]='T';   // INSERTO LA TRUPALLA EN TABLERO
 		
 
-		Trupalla trupalla1 =new Trupalla(); // CREO LA TRUPALLA Y LA AGREDO AL ARRAY
+		Trupalla trupalla1 =new Trupalla(fila, columna); // CREO LA TRUPALLA Y LA AGREDO AL ARRAY
 		vehiculos.add(trupalla1);
 }
 	
@@ -68,15 +69,11 @@ public void insertarCaguano() {
 		}while (!validarCelda(fila, columna)||!validarCelda(fila, columna+1));
 	
 		
-		if (columna<=13) {
 			matriztablero[fila][columna]='C';
 			matriztablero[fila][columna+1]='C';	
-			}else if (columna==14) {
-				matriztablero[fila][columna]='C';
-				matriztablero[fila][columna-1]='C';		
-				}
+			
 				
-		Carro caguano1 =new Caguano();
+		Carro caguano1 =new Caguano(fila, columna);
 		vehiculos.add(caguano1);
 	
 		
@@ -100,12 +97,10 @@ public void insertarKromi() {
 		matriztablero[fila+2][columna]='K';	
 	
 				
-		Carro kromi1 =new Kromi();
+		Carro kromi1 =new Kromi(fila, columna);
 		vehiculos.add(kromi1);		
 		
 }
-	
-
 	
 	
 	
@@ -114,14 +109,17 @@ public void dibujartablero() {
 	
 		System.out.println("============================================================");
 		System.out.println("***************** TABLERO  DE EFECTIVOS PKS ****************");
+		System.out.println("  0   1   2   3   4   5   6   7   8   9   10  11  12  13  14");
 		System.out.println("____________________________________________________________");
 							
 			for (int i = 0; i < 15; i++) {  //DIBUJA EL TABLERO
 				for (int j = 0; j < 15; j++) {
+					
 					System.out.print("|");
 					System.out.print("_" + matriztablero[i][j] + "_");
 				}
-				System.out.println("|");
+				System.out.println("|"+i);
+				
 		 	}
 		
 }//FIN DIBUJAR TABLERO
@@ -143,37 +141,108 @@ public boolean validarCelda(int fila, int columna) {
 
 public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMIENTO
 								//ASIGNA PUNTAJE Y ALMACENA EN LISTA CORRESPONDIENTE 
-	
-		System.out.println("*****************************     ");
-		System.out.println("*COORDENADAS DE LANZAMIENTO *     ");
-		System.out.println("*****************************     ");
-		System.out.print("***  Ingresa N° de Fila   (Entre 0 y 14):");
-		fila=leer.nextInt();
+	int filahuevo;
+	int columnahuevo;
+	int aux1=0;
+	int aux2=0;
+	int aux3=0;
+	int aux4=0;
+	int aux5=0;
+	int aux6=0;
+		
+		System.out.println("");
+		System.out.println("      *****************************     ");
+		System.out.println("      *COORDENADAS DE LANZAMIENTO *     ");
+		System.out.println("      *****************************     ");
+		System.out.print("***  Ingresa N° de Fila    (Entre 0 y 14):");
+		System.out.println("");
+		filahuevo=leer.nextInt();
 		System.out.print("***  Ingresa N° de Columna (Entre 0 y 14):");
-		columna=leer.nextInt();
+		System.out.println("");
+		columnahuevo=leer.nextInt();
 		
-		
-		if(fila=='T' && columna =='T') {
-			System.out.println("...LE DISTE A UN TRUPALLA.LE SACASTE LA CHUCHA...");
-			puntaje =puntaje+1; 
-		}else if (fila=='C'&& columna=='C') {
-			System.out.println("...LE DISTE A UN CAGUANO .LE SACASTE LA CONCHA...");
-				puntaje=puntaje+2;
-			}else if (fila=='K' && columna=='K') {
-				System.out.println("...LE DISTE A UN KROMI.LE SACASTE LA CRESTA...");
-					puntaje=puntaje+3;
+		for (int i = 0; i < matriztablero.length; i++) {
+			for (int j = 0; j < matriztablero.length; j++) {
+				
+				if(matriztablero[i][j]=='T') {
+					aux1=i;
+					aux2=j;
+				}	
+				if(matriztablero[i][j]=='C') {
+					aux3=i;
+					aux4=j;
+							
+				}
+				if(matriztablero[i][j]=='K') {
+					aux5=i;
+					aux6=j;
+				}
+					 
 			}
+						
+		}
+		
+		if (matriztablero[aux1][aux2]==matriztablero[filahuevo][columnahuevo]) {
+				System.out.println("BIEN! LE DISTE A UNA TRUPALLA");
+				 puntaje++;
+		}	 
+		else if (matriztablero[aux3][aux4]==matriztablero[filahuevo][columnahuevo]) {
+						System.out.println("BIEN! LE DISTE A UN CAGUANO");
+						 puntaje=puntaje +2;		 
+					}
+		else if (matriztablero[aux5][aux6]==matriztablero[filahuevo][columnahuevo]) {
+							System.out.println("BIEN! LE DISTE A UNA KROMI");
+							puntaje=puntaje +3;		 
+						}else  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
+		
+		Huevo huevo1=new Huevo(puntaje, filahuevo, columnahuevo);
+		proyectiles.add(huevo1);
+		
+		mostrarMatrizactualizada(filahuevo, columnahuevo);
 		
 		
-}//FIN LANZAR HUEVO		*/
+}//FIN LANZAR HUEVO		
+	
+
 	
 	
 	
-	
-	
-	public void mostrarMatriz () { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO
-									//CALCULA PUNTAJE HASTA EL MOMENTO
+	public void mostrarMatrizactualizada (int filahuevo, int columnahuevo) { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO
+		char vault=' ';									//CALCULA PUNTAJE HASTA EL MOMENTO
+		
+		
+		System.out.println("============================================================");
+		System.out.println("***************** TABLERO  DE EFECTIVOS PKS ****************");
+		System.out.println("  0   1   2   3   4   5   6   7   8   9   10  11  12  13  14");
+		System.out.println("____________________________________________________________");
+		
+		matrizghost[filahuevo][columnahuevo]='H';	
+		
+		for (int i = 0; i < 15; i++) {  //DIBUJA EL TABLERO
+			for (int j = 0; j < 15; j++) {
+				
+			//	matriztablero[filahuevo][columnahuevo]=vault;
+				
+					
+					System.out.print("|");
+					System.out.print("_" + matrizghost[i][j]+ "_");
+									
+				
+			//	}else {
+			//		System.out.print("|");
+				//	System.out.print("_" +" "+ "_");	
+					
+			//	}
+				
+			}
+			System.out.println("|"+i);
 			
+	 	}
+		
+		
+		
+		
+		
 	}//FIN MOSTRAR MATRIZ
 	
 	public void calcularPuntaje() { //SUMA Y ENTREGA LOS PUNTAJES DE CADA LANZAMIENTO
@@ -224,7 +293,9 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 		this.proyectiles = proyectiles;
 	}
 	
-	
+	public char [][] getMatrizghost() {
+		return matrizghost;
+	}
 	
 	
 	

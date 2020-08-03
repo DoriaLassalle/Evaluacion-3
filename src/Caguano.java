@@ -8,10 +8,12 @@ public class Caguano extends Carro{
 		String colorconfeti;         
 		
 	
-
-	public Caguano() {
-		super();
-		
+	
+	public Caguano(int fila, int columna) {
+		this.setFila(fila);
+		this.setColumna(columna);
+		this.alcance=5;
+		this.colorconfeti="rojo";
 	}
 
 	public Caguano(int ocupantes, int fecha, int fila, int columna, int alcance, String colorconfeti ) {
@@ -44,7 +46,8 @@ public class Caguano extends Carro{
 
 	@Override
 	public String toString() {
-		return "Caguano: Mide " + LARGOC + "mt.de largo. Lanza Confeti a " + alcance + " mt. y de Color:" + colorconfeti + ".";
+		return "Caguano: Mide " + LARGOC + "mt.de largo. Lanza Confeti a " + alcance + " mt. y de Color:" + colorconfeti + "Ubicación: "
+				+ getFila()+","+getColumna();
 	}
 	
 	

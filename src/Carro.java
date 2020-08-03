@@ -8,7 +8,10 @@ public class Carro {
 	
 	
 	public Carro() {
-		super();
+		this.ocupantes=2;
+		this.fecha=10;
+			
+		
 	}
 
 

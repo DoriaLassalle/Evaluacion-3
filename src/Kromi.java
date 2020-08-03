@@ -8,12 +8,16 @@ public class Kromi extends Carro {
 	String marca;
 	int largo;
 	
-	
-	public Kromi() {
-		super();
+
+
+	public Kromi(int fila, int columna) {
+		this.setFila(fila);
+		this.setColumna(columna);
+		this.fabricacion=98;
+		this.marca="Mercedes Benz";
 	}
-
-
+	
+	
 	public Kromi(int ocupantes, int fecha, int fila, int columna, int fabricacion, String marca) {
 		super(ocupantes, fecha, fila, columna);
 		// TODO Auto-generated constructor stub
@@ -70,7 +74,8 @@ public class Kromi extends Carro {
 
 	@Override
 	public String toString() {
-		return "Kromi Marca: " + marca + " Año de fabricacion:" + fabricacion + " Mide" + LARGOK+ " mt. de largo.";
+		return "Kromi Marca: " + marca + " Año de fabricacion:" + fabricacion + " Mide" + LARGOK+ " mt. de largo"
+				+" Ubicación: "+getFila()+","+getColumna();
 	}
 
 

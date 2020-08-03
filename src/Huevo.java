@@ -5,8 +5,18 @@ public class Huevo extends Tablero {			//esta clase define cada lanzamiento real
 
 	private int puntaje;
 	private int ubicacion;
+	private int filahuevo;
+	private int columnahuevo;
 	
 	
+	
+	public Huevo(int puntaje, int filahuevo, int columnahuevo) {
+	 this.puntaje=puntaje;
+	 this.filahuevo=filahuevo;
+	 this.columnahuevo=columnahuevo;
+	 
+			
+	}
 	/*
 
 	@Override
@@ -31,6 +41,10 @@ public class Huevo extends Tablero {			//esta clase define cada lanzamiento real
 	public int getColumna() {
 		// TODO Auto-generated method stub
 		return super.getColumna();
+	}
+	@Override
+	public String toString() {
+		return "Huevo Puntaje total:" + puntaje + ", Ubicación: (" + filahuevo + ", " + columnahuevo + ")";
 	}
 
 	

@@ -2,7 +2,8 @@ import java.util.*;
 public class MainFirstLine {
 
 	public static Scanner leer = new Scanner(System.in);
-	public static Tablero tablero= new Tablero();
+	public static Tablero tablero;
+	
 	
 	public static void main(String[] args) {
 		
@@ -19,7 +20,9 @@ public class MainFirstLine {
 		System.out.println("*                              ¡¡A JUGAR!!                                         *");
 		System.out.println("*                                                                                  *");
 		System.out.println("************************************************************************************");
-									
+		
+		
+		tablero= new Tablero();
 		menuPrincipal();					//LLAMAMOS MENU PRINCIPAL
 		
 			
@@ -32,14 +35,13 @@ public class MainFirstLine {
 			int op=0;
 			
 		do {
-		
+			System.out.println("");
 			System.out.println("*****   ELIGE UNA OPCION:    *****");
 			System.out.println("**                              **");
-			System.out.println("*   1.INICIAR JUEGO              *");
-			System.out.println("*   2.LANZAR HUEVO               *");
-			System.out.println("*   3.MOSTRAR UBICACION CARROS   *");
-			System.out.println("*   4.MOSTRAR PUNTAJE Y DATOS    *");
-			System.out.println("*   5.SALIR                      *");
+			System.out.println("*   1.LANZAR HUEVO               *");
+			System.out.println("*   2.MOSTRAR UBICACION CARROS   *");
+			System.out.println("*   3.MOSTRAR PUNTAJE Y DATOS    *");
+			System.out.println("*   4.SALIR                      *");
 			System.out.println("**                              **");
 			System.out.println("**********************************");
 			
@@ -48,15 +50,14 @@ public class MainFirstLine {
 			
 			switch (op) {
 			
-			case 1:	tablero.dibujartablero();;break;		//DIBUJAMOS TABLERO
+			case 1:	mostrarMatriz();		//DIBUJAMOS TABLERO
+					lanzarProyectil();break;
+										
+			case 2:	tablero.dibujartablero();break; 
 			
-			case 2:	lanzarProyectil();break;
-							
-			case 3:	mostrarMatriz();break; 
-			
-			case 4:	mostrarPuntajeydatos(); break;
+			case 3:	mostrarPuntajeydatos(); break;
 				
-			case 5:	System.out.println("¡¡¡GRACIAS POR USAR EL PROGRAMA!!!"); break;
+			case 4:	System.out.println("¡¡¡GRACIAS POR USAR EL PROGRAMA!!!"); break;
 			
 			default: System.err.println("Error! Selecione Opcion Correcta"); break;
 			
@@ -70,6 +71,8 @@ public class MainFirstLine {
 	
 public static void lanzarProyectil() {
 	tablero.lanzarHuevo();
+	
+	
 }
 	
 	
@@ -77,11 +80,23 @@ public static void lanzarProyectil() {
 
 public static void mostrarMatriz() {
 	
+	 	tablero.mostrarMatrizactualizada(tablero.getFila(), tablero.getColumna());
+	
+	
+	
+	
 }
 	
 public static void mostrarPuntajeydatos() {
 
+	tablero.dibujartablero();
+	System.out.println("");
 	
+	for (Huevo index:tablero.getProyectiles()) {
+		System.out.println(index.toString());
+	}
+	
+	System.out.println("");
 	for (Carro index:tablero.getVehiculos()) {
 		System.out.println(index.toString());
 	}
