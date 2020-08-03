@@ -9,7 +9,7 @@ public class Carro {
 	
 	public Carro() {
 		this.ocupantes=2;
-		this.fecha=10;
+		this.fecha=2010;
 			
 		
 	}

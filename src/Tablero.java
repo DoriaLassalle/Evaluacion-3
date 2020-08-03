@@ -107,9 +107,9 @@ public void insertarKromi() {
 public void dibujartablero() {
 	
 	
-		System.out.println("============================================================");
-		System.out.println("***************** TABLERO  DE EFECTIVOS PKS ****************");
-		System.out.println("  0   1   2   3   4   5   6   7   8   9   10  11  12  13  14");
+		System.out.println("==============================================================");
+		System.out.println("=================  TABLERO  DE EFECTIVOS PKS  ================");
+		System.out.println("= 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14 =");
 		System.out.println("____________________________________________________________");
 							
 			for (int i = 0; i < 15; i++) {  //DIBUJA EL TABLERO
@@ -154,13 +154,13 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 			
 	
 		System.out.println("");
-		System.out.println("      *****************************     ");
-		System.out.println("      *COORDENADAS DE LANZAMIENTO *     ");
-		System.out.println("      *****************************     ");
-		System.out.print("***  Ingresa N° de Fila    (Entre 0 y 14):");
+		System.out.println("       *******************************    ");
+		System.out.println("     **** COORDENADAS DE LANZAMIENTO ***  ");
+		System.out.println("   ***************************************");
+		System.out.print("***  Ingresa NÂ° de Fila    (Entre 0 y 14):");
 		System.out.println("");
 		filahuevo=leer.nextInt();
-		System.out.print("***  Ingresa N° de Columna (Entre 0 y 14):");
+		System.out.print("***  Ingresa NÂ° de Columna (Entre 0 y 14):");
 		System.out.println("");
 		columnahuevo=leer.nextInt();
 		
@@ -216,9 +216,9 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 							//CALCULA PUNTAJE HASTA EL MOMENTO
 		
 		
-		System.out.println("============================================================");
-		System.out.println("***************** TABLERO  DE EFECTIVOS PKS ****************");
-		System.out.println("  0   1   2   3   4   5   6   7   8   9   10  11  12  13  14");
+		System.out.println("==============================================================");
+		System.out.println("=================  TABLERO  DE EFECTIVOS PKS  ================");
+		System.out.println("= 0   1   2   3   4   5   6   7   8   9   10  11  12  13  14 =");
 		System.out.println("____________________________________________________________");
 		
 		if (check==true) {

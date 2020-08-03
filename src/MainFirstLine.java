@@ -36,14 +36,14 @@ public class MainFirstLine {
 			
 		do {
 			System.out.println("");
-			System.out.println("*****   ELIGE UNA OPCION:    *****");
-			System.out.println("**                              **");
-			System.out.println("*   1.LANZAR HUEVO               *");
-			System.out.println("*   2.MOSTRAR UBICACION CARROS   *");
-			System.out.println("*   3.MOSTRAR PUNTAJE Y DATOS    *");
-			System.out.println("*   4.SALIR                      *");
-			System.out.println("**                              **");
-			System.out.println("**********************************");
+			System.out.println("***********   ELIGE UNA OPCION:   ***********");
+			System.out.println("**                                         **");
+			System.out.println("*   1.LANZAR HUEVO                          *");
+			System.out.println("*   2.MOSTRAR UBICACION CARROS (Spoiler)    *");
+			System.out.println("*   3.MOSTRAR PUNTAJE Y DATOS FLOTA PKS     *");
+			System.out.println("*   4.SALIR DEL JUEGO                       *");
+			System.out.println("**                                         **");
+			System.out.println("*********************************************");
 			
 			System.out.print(" :" );
 			op=leer.nextInt();

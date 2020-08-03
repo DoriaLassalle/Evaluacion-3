@@ -74,8 +74,8 @@ public class Kromi extends Carro {
 
 	@Override
 	public String toString() {
-		return "Kromi Marca: " + marca + " Año de fabricacion:" + fabricacion + " Mide" + LARGOK+ " mt. de largo"
-				+" Ubicación: "+getFila()+","+getColumna();
+		return "Kromi: Marca " + marca + " Fabricada el año " + fabricacion + ". Mide " + LARGOK+ " mt. de largo"
+				+". Ubicación: "+getFila()+","+getColumna();
 	}
 
 
