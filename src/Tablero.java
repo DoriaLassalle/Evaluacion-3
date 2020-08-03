@@ -141,8 +141,8 @@ public boolean validarCelda(int fila, int columna) {
 
 public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMIENTO
 								//ASIGNA PUNTAJE Y ALMACENA EN LISTA CORRESPONDIENTE 
-	int filahuevo=0;
-	int columnahuevo=0;
+	int filahuevo = 0;
+	int columnahuevo = 0;
 	int aux1=0;
 	int aux2=0;
 	int aux3=0;
@@ -150,6 +150,9 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 	int aux5=0;
 	int aux6=0;
 		
+		mostrarMatrizactualizada(filahuevo, columnahuevo,false);
+			
+	
 		System.out.println("");
 		System.out.println("      *****************************     ");
 		System.out.println("      *COORDENADAS DE LANZAMIENTO *     ");
@@ -199,7 +202,8 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 		proyectiles.add(huevo1);
 		
 		
-		mostrarMatrizactualizada(filahuevo, columnahuevo);
+		matriztablero[filahuevo][columnahuevo]='H';
+		mostrarMatrizactualizada(filahuevo, columnahuevo,true);
 		
 		
 }//FIN LANZAR HUEVO		
@@ -208,8 +212,8 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 	
 	
 	
-	public void mostrarMatrizactualizada (int filahuevo, int columnahuevo) { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO
-		boolean vault;									//CALCULA PUNTAJE HASTA EL MOMENTO
+	public void mostrarMatrizactualizada (int filahuevo, int columnahuevo,boolean check) { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO
+							//CALCULA PUNTAJE HASTA EL MOMENTO
 		
 		
 		System.out.println("============================================================");
@@ -217,19 +221,16 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 		System.out.println("  0   1   2   3   4   5   6   7   8   9   10  11  12  13  14");
 		System.out.println("____________________________________________________________");
 		
-		
+		if (check==true) {
+			matrizghost[filahuevo][columnahuevo]='H';		
 			
-			matrizghost[filahuevo][columnahuevo]='H';	
+		} 
+		
 					
-			
-		
-		
+				
 		for (int i = 0; i < 15; i++) {  //DIBUJA EL TABLERO
 			for (int j = 0; j < 15; j++) {
-				
-		
-				
-					
+							
 					System.out.print("|");
 					System.out.print("_" + matrizghost[i][j]+ "_");
 		
@@ -239,9 +240,7 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 			
 	 	}
 		
-		
-		
-		
+
 		
 	}//FIN MOSTRAR MATRIZ
 	

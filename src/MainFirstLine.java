@@ -74,7 +74,7 @@ public class MainFirstLine {
 public static void lanzarProyectil() {
 			
 	tablero.lanzarHuevo();
-	tablero.mostrarMatrizactualizada(tablero.getFila(), tablero.getColumna());
+
 	
 }
 	
