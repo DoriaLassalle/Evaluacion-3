@@ -212,51 +212,66 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 				System.out.println("");
 				 puntaje++;
 		}	 
-		else if (matriztablero[aux3][aux4]==matriztablero[filahuevo][columnahuevo]) {
+			else if (matriztablero[aux3][aux4]==matriztablero[filahuevo][columnahuevo]) {
 						System.out.println("BIEN! LE DISTE A UN CAGUANO");
 						System.out.println("");
 						 puntaje=puntaje +2;	
 						 
-																
-						if(!validarCeldaH(filahuevo, columnahuevo)||!validarCeldaH(filahuevo, columnahuevo+1) 
-							|| !validarCeldaH(filahuevo, columnahuevo-1))  {
+				if (columnahuevo>=0 && columnahuevo<=13) {												
 					
-				
-								System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
-								puntaje+=7;
-						}
-								
+					if(!validarCeldaH(filahuevo, columnahuevo)||!validarCeldaH(filahuevo, columnahuevo+1)){ 
+					  
+						System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
+						puntaje+=7;
+					}
+				}	
+			
+				if (columnahuevo>=1 && columnahuevo<=14) {
+					 
+					if (!validarCeldaH(filahuevo, columnahuevo-1)) {
+						 
+						System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
+						puntaje+=7; 
+					}	 
+				}	 
 			}		
-		
+	
 		
 		else if (matriztablero[aux5][aux6]==matriztablero[filahuevo][columnahuevo]) {
 							System.out.println("BIEN! LE DISTE A UNA KROMI");
 							System.out.println("");
 							puntaje=puntaje +3;		
+					
+					if (filahuevo>=0 && filahuevo<=12)	{	
 							
 							if ((!validarCeldaH(filahuevo, columnahuevo)|| !validarCeldaH(filahuevo+1, columnahuevo)) 
 								 && (!validarCeldaH(filahuevo+2, columnahuevo))) {
 								
-												
-										System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
-										puntaje+=10;
+								System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
+								puntaje+=10;
+							}					
+					}					
 							
-							}
+					if (filahuevo>=2 && filahuevo<=14)	{
+										
+						if((!validarCeldaH(filahuevo, columnahuevo)|| !validarCeldaH(filahuevo-1, columnahuevo)) 
+								 && (!validarCeldaH(filahuevo-2, columnahuevo))) {
 							
-						}else  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
-							   System.out.println("");
-		
-			   
-							   
-		
-		matriztablero[filahuevo][columnahuevo]='H';
-		mostrarMatrizactualizada(filahuevo, columnahuevo,true);
-		
-		
-}//FIN LANZAR HUEVO		
-	
-
-	
+							System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
+							puntaje+=10;
+						}						
+					}	
+		}			
+			 
+		else  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
+		   System.out.println("");			
+						
+			matriztablero[filahuevo][columnahuevo]='H';
+			mostrarMatrizactualizada(filahuevo, columnahuevo,true);
+			
+			
+	}//FIN LANZAR HUEVO								
+					
 	
 	
 	public void mostrarMatrizactualizada (int filahuevo, int columnahuevo,boolean check) { //MUESTRA TABLERO CON CARROS Y LANZAMIENTOS (H) AL MOMENTO

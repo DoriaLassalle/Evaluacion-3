@@ -16,6 +16,7 @@ public class MainFirstLine {
 		System.out.println("* La Flota de vehículos se encuentra desplegada en el tablero y está compuesta por *");
 		System.out.println("*                      KROMIS, CAGUANOS Y TRUPALLAS                                *");
 		System.out.println("*          Deberás derrotarlas con tus proyectiles...Los HUEVOS.                   *");
+		System.out.println("*Las KROMIS van verticales y los CAGUANOS horizontales. La TRUPALLA usa 1 espacio. *");
 		System.out.println("*         Lánzalos con tu mejor precisión y suma el máximo de puntos.              *");
 		System.out.println("*                              ¡¡A JUGAR!!                                         *");
 		System.out.println("*                                                                                  *");
@@ -38,12 +39,10 @@ public class MainFirstLine {
 		do {
 			System.out.println("");
 			System.out.println("***********   ELIGE UNA OPCION:   ***********");
-			System.out.println("**                                         **");
 			System.out.println("*   1.LANZAR HUEVO                          *");
 			System.out.println("*   2.MOSTRAR UBICACION CARROS (Spoiler)    *");
 			System.out.println("*   3.MOSTRAR PUNTAJE Y DATOS FLOTA PKS     *");
 			System.out.println("*   4.SALIR DEL JUEGO                       *");
-			System.out.println("**                                         **");
 			System.out.println("*********************************************");
 			
 			System.out.print(" :" );
