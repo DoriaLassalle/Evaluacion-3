@@ -5,20 +5,20 @@ public class Trupalla extends Carro{
 	
 	int armadura;			//NIVEL ENTRE 1 - 5
 	String nombre;			//NOMBRE CONDUCTOR
-	
+	Cabo conductor= new Cabo ();
 	
 	
 		
 	public Trupalla(int fila, int columna) {
 		this.setFila(fila);
 		this.setColumna(columna);
-		this.armadura=5;
-		this.nombre="Cabo Rodolfo";
+		this.armadura=(int) (Math.random()*5+1);
+		this.nombre=conductor.toString();
 		
 	}
 	
 	
-	public Trupalla(int ocupantes, int fecha, int fila, int columna, int armadura, String nombre) {
+	public Trupalla(int ocupantes, String fecha, int fila, int columna, int armadura, String nombre) {
 		super(ocupantes, fecha, fila, columna);
 			this.armadura=armadura;
 			this.nombre=nombre;
@@ -40,7 +40,7 @@ public class Trupalla extends Carro{
 	@Override
 	public String toString() {
 		return "Trupalla: N.Armadura: " + armadura + ", Driver: " + nombre + " + " + getOcupantes()
-			+ " Ocupantes. En la institución desde el año: " + getFecha()+ ". Ubicación: " + getFila()
+			+ " Ocupantes. En la institución desde el año: " + getFecha()+ " Ubicación: " + getFila()
 			+","+getColumna();
 				
 	}

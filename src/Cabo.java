@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Cabos {
+public class Cabo {
 
 	private String apellido;
 	
@@ -9,7 +9,7 @@ public class Cabos {
             				"Ríos", "Sampras", "Sotomayor", "Agassi", "Guerra", "Faúndez", "Jobs", "Gates",
             				"Rosas", "Tyler", "Yévenes", "Fagalde", "Romero", "Zabaleta", "Vicuña", "Camiroaga"};
 	
-	public Cabos() {
+	public Cabo() {
         this.apellido =  apellidos[(int) (Math.random() * apellidos.length)];
               
     }
@@ -24,7 +24,7 @@ public class Cabos {
 
 	@Override
 	public String toString() {
-		return "Cabos " + apellido;
+		return "Cabo " + apellido;
 	}
 	
 	

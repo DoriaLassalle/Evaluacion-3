@@ -21,6 +21,7 @@ public class MainFirstLine {
 		System.out.println("*                                                                                  *");
 		System.out.println("************************************************************************************");
 		
+			
 		
 		tablero= new Tablero();
 		menuPrincipal();					//LLAMAMOS MENU PRINCIPAL

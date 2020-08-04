@@ -137,7 +137,18 @@ public boolean validarCelda(int fila, int columna) {
 
 				
 }//FIN VALIDAR CELDA 
+
+public boolean validarCeldaH(int fila, int columna) {
 	
+	if (matriztablero[fila][columna]=='H') {
+		return false;
+	}else{
+		return true;
+	}
+
+			
+}//FIN VALIDAR CELDAH 
+
 
 public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMIENTO
 								//ASIGNA PUNTAJE Y ALMACENA EN LISTA CORRESPONDIENTE 
@@ -151,7 +162,8 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 	int aux6=0;
 		
 		mostrarMatrizactualizada(filahuevo, columnahuevo,false);
-			
+		
+		
 	
 		System.out.println("");
 		System.out.println("       *******************************    ");
@@ -163,6 +175,9 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 		System.out.print("***  Ingresa N° de Columna (Entre 0 y 14):");
 		System.out.println("");
 		columnahuevo=leer.nextInt();
+		
+		Huevo huevo1=new Huevo(puntaje, filahuevo, columnahuevo);
+		proyectiles.add(huevo1);	
 		
 		for (int i = 0; i < matriztablero.length; i++) {
 			for (int j = 0; j < matriztablero.length; j++) {
@@ -181,26 +196,58 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 					aux6=j;
 				}
 					 
-			}
-						
+			 // if(matriztablero[i][j]=='C' && matriztablero[i][j+1]=='C') {
+			
+			//}
+			
+			
+			}			
 		}
+
+		
+		
 		
 		if (matriztablero[aux1][aux2]==matriztablero[filahuevo][columnahuevo]) {
 				System.out.println("BIEN! LE DISTE A UNA TRUPALLA");
+				System.out.println("");
 				 puntaje++;
 		}	 
 		else if (matriztablero[aux3][aux4]==matriztablero[filahuevo][columnahuevo]) {
 						System.out.println("BIEN! LE DISTE A UN CAGUANO");
-						 puntaje=puntaje +2;		 
-					}
+						System.out.println("");
+						 puntaje=puntaje +2;	
+						 
+																
+						if(!validarCeldaH(filahuevo, columnahuevo)||!validarCeldaH(filahuevo, columnahuevo+1) 
+							|| !validarCeldaH(filahuevo, columnahuevo-1))  {
+					
+				
+								System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
+								puntaje+=7;
+						}
+								
+			}		
+		
+		
 		else if (matriztablero[aux5][aux6]==matriztablero[filahuevo][columnahuevo]) {
 							System.out.println("BIEN! LE DISTE A UNA KROMI");
-							puntaje=puntaje +3;		 
+							System.out.println("");
+							puntaje=puntaje +3;		
+							
+							if ((!validarCeldaH(filahuevo, columnahuevo)|| !validarCeldaH(filahuevo+1, columnahuevo)) 
+								 && (!validarCeldaH(filahuevo+2, columnahuevo))) {
+								
+												
+										System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
+										puntaje+=10;
+							
+							}
+							
 						}else  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
+							   System.out.println("");
 		
-		Huevo huevo1=new Huevo(puntaje, filahuevo, columnahuevo);
-		proyectiles.add(huevo1);
-		
+			   
+							   
 		
 		matriztablero[filahuevo][columnahuevo]='H';
 		mostrarMatrizactualizada(filahuevo, columnahuevo,true);
@@ -248,7 +295,6 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 									//VISIBLE Y USADA  DENTRO DE LA CLASE
 									//CLASE HUEVO DEFINE CADA LANZAMIENTO REALIZADO
 	//SI HUEVO CAE EN 3a TRUPALLA ADD 10 PUNTOS; EN 2o CAGUANO ADD 7 PUNTOS
-		
 		
 	}//FIN CALCULARPUNTAJE
 

@@ -2,20 +2,20 @@
 public class Carro {
 	
 	private int ocupantes;
-	private int fecha;			//fecha de ingreso
+	private String fecha;			//fecha de ingreso
 	private int fila;
 	private int columna;
-	
+	Fechas year = new Fechas();
 	
 	public Carro() {
-		this.ocupantes=2;
-		this.fecha=2010;
+		this.ocupantes=(int)(Math.random()*3+1);
+		this.fecha=year.toString();
 			
 		
 	}
 
 
-	public Carro(int ocupantes, int fecha, int fila, int columna) {
+	public Carro(int ocupantes, String fecha, int fila, int columna) {
 		super();
 		this.ocupantes = ocupantes;
 		this.fecha = fecha;
@@ -34,12 +34,12 @@ public class Carro {
 	}
 
 
-	public int getFecha() {
+	public String getFecha() {
 		return fecha;
 	}
 
 
-	public void setFecha(int fecha) {
+	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
 

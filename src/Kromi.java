@@ -4,21 +4,26 @@ public class Kromi extends Carro {
 
 	public final int LARGOK=3;		//CELDAS HACIA ABAJO
 
-	int fabricacion;					//AÑO
+	String fabricacion;					//AÑO
 	String marca;
 	int largo;
+	Fechas year=new Fechas();
 	
-
+	
+	
+	private final String[] marcas = {"Mercedes Benz", "Dodge", "Chevrolet"};
+	
+	
 
 	public Kromi(int fila, int columna) {
 		this.setFila(fila);
 		this.setColumna(columna);
-		this.fabricacion=98;
-		this.marca="Mercedes Benz";
+		this.fabricacion=year.toString();
+		this.marca=marcas[(int) (Math.random() * marcas.length)];
 	}
 	
 	
-	public Kromi(int ocupantes, int fecha, int fila, int columna, int fabricacion, String marca) {
+	public Kromi(int ocupantes, String fecha, int fila, int columna, String fabricacion, String marca) {
 		super(ocupantes, fecha, fila, columna);
 		// TODO Auto-generated constructor stub
 		this.fabricacion=fabricacion;
@@ -32,14 +37,14 @@ public class Kromi extends Carro {
 
 
 
-	public int getFabricacion() {
+	public String getFabricacion() {
 		return fabricacion;
 	}
 
 
 
 
-	public void setFabricacion(int fabricacion) {
+	public void setFabricacion(String fabricacion) {
 		this.fabricacion = fabricacion;
 	}
 
@@ -74,7 +79,7 @@ public class Kromi extends Carro {
 
 	@Override
 	public String toString() {
-		return "Kromi: Marca " + marca + " Fabricada el año " + fabricacion + ". Mide " + LARGOK+ " mt. de largo"
+		return "Kromi: Marca " + marca + ", Fabricada el año " + fabricacion + " Mide " + LARGOK+ " mt. de largo"
 				+". Ubicación: "+getFila()+","+getColumna();
 	}
 
