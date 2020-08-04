@@ -219,7 +219,7 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 						 
 				if (columnahuevo>=0 && columnahuevo<=13) {												
 					
-					if(!validarCeldaH(filahuevo, columnahuevo)||!validarCeldaH(filahuevo, columnahuevo+1)){ 
+					if(!validarCeldaH(filahuevo, columnahuevo) || !validarCeldaH(filahuevo, columnahuevo+1)){ 
 					  
 						System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
 						puntaje+=7;
@@ -244,8 +244,10 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 					
 					if (filahuevo>=0 && filahuevo<=12)	{	
 							
-							if ((!validarCeldaH(filahuevo, columnahuevo)|| !validarCeldaH(filahuevo+1, columnahuevo)) 
-								 && (!validarCeldaH(filahuevo+2, columnahuevo))) {
+							if ((!validarCeldaH(filahuevo, columnahuevo) && !validarCeldaH(filahuevo+1, columnahuevo) 
+								 && !validarCeldaH(filahuevo+2, columnahuevo)) 
+								 ||  ( !validarCeldaH(filahuevo, columnahuevo) && !validarCeldaH(filahuevo+1, columnahuevo) 
+								 && !validarCeldaH(filahuevo-2, columnahuevo))) {
 								
 								System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
 								puntaje+=10;
@@ -254,13 +256,14 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 							
 					if (filahuevo>=2 && filahuevo<=14)	{
 										
-						if((!validarCeldaH(filahuevo, columnahuevo)|| !validarCeldaH(filahuevo-1, columnahuevo)) 
+						if((!validarCeldaH(filahuevo, columnahuevo) && !validarCeldaH(filahuevo-1, columnahuevo)) 
 								 && (!validarCeldaH(filahuevo-2, columnahuevo))) {
 							
 							System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
 							puntaje+=10;
 						}						
-					}	
+					}
+					
 		}			
 			 
 		else  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
