@@ -75,10 +75,8 @@ public void insertarCaguano() {
 				
 		Carro caguano1 =new Caguano(fila, columna);
 		vehiculos.add(caguano1);
-	
 		
 }	
-	
 	
 	
 public void insertarKromi() {
@@ -125,8 +123,6 @@ public void dibujartablero() {
 }//FIN DIBUJAR TABLERO
 	
 	
-	
-	
 public boolean validarCelda(int fila, int columna) {
 	
 		if (matriztablero[fila][columna]=='T' || matriztablero[fila][columna]=='C' || matriztablero[fila][columna]=='K') {
@@ -162,8 +158,6 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 	int aux6=0;
 		
 		mostrarMatrizactualizada(filahuevo, columnahuevo,false);
-		
-		
 	
 		System.out.println("");
 		System.out.println("       *******************************    ");
@@ -175,9 +169,7 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 		System.out.print("***  Ingresa N° de Columna (Entre 0 y 14):");
 		System.out.println("");
 		columnahuevo=leer.nextInt();
-		
-		Huevo huevo1=new Huevo(puntaje, filahuevo, columnahuevo);
-		proyectiles.add(huevo1);	
+			
 		
 		for (int i = 0; i < matriztablero.length; i++) {
 			for (int j = 0; j < matriztablero.length; j++) {
@@ -195,34 +187,25 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 					aux5=i;
 					aux6=j;
 				}
-					 
-			 // if(matriztablero[i][j]=='C' && matriztablero[i][j+1]=='C') {
-			
-			//}
-			
-			
+					
 			}			
 		}
-
-		
-		
 		
 		if (matriztablero[aux1][aux2]==matriztablero[filahuevo][columnahuevo]) {
-				System.out.println("BIEN! LE DISTE A UNA TRUPALLA");
+				System.out.println("BIEN! LE DISTE A UNA TRUPALLA SUMAS 1 PUNTO");
 				System.out.println("");
-				 puntaje++;
+				 puntaje=puntaje +1;
 		}	 
 			else if (matriztablero[aux3][aux4]==matriztablero[filahuevo][columnahuevo]) {
-						System.out.println("BIEN! LE DISTE A UN CAGUANO");
-						System.out.println("");
-						 puntaje=puntaje +2;	
+						System.out.println("BIEN! LE DISTE A UN CAGUANO SUMAS 2 PUNTOS");
+						puntaje=puntaje +2;	
 						 
 				if (columnahuevo>=0 && columnahuevo<=13) {												
 					
 					if(!validarCeldaH(filahuevo, columnahuevo) || !validarCeldaH(filahuevo, columnahuevo+1)){ 
 					  
 						System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
-						puntaje+=7;
+						puntaje=puntaje + 7;
 					}
 				}	
 			
@@ -231,44 +214,66 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 					if (!validarCeldaH(filahuevo, columnahuevo-1)) {
 						 
 						System.out.println("ELIMINASTE UN CAGUANO! SUMAS 7 PUNTOS EXTRA!");
-						puntaje+=7; 
+						puntaje=puntaje+7; 
 					}	 
 				}	 
 			}		
 	
 		
 		else if (matriztablero[aux5][aux6]==matriztablero[filahuevo][columnahuevo]) {
-							System.out.println("BIEN! LE DISTE A UNA KROMI");
-							System.out.println("");
+							System.out.println("BIEN! LE DISTE A UNA KROMI SUMAS 3 PUNTOS");
 							puntaje=puntaje +3;		
 					
-					if (filahuevo>=0 && filahuevo<=12)	{	
-							
-							if ((!validarCeldaH(filahuevo, columnahuevo) && !validarCeldaH(filahuevo+1, columnahuevo) 
-								 && !validarCeldaH(filahuevo+2, columnahuevo)) 
-								 ||  ( !validarCeldaH(filahuevo, columnahuevo) && !validarCeldaH(filahuevo+1, columnahuevo) 
-								 && !validarCeldaH(filahuevo-2, columnahuevo))) {
+					if (filahuevo==0 )	{	
+				
+							if (!validarCeldaH(filahuevo, columnahuevo) || (!validarCeldaH(filahuevo+1, columnahuevo) 
+								 && !validarCeldaH(filahuevo+2, columnahuevo))) {
 								
 								System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
-								puntaje+=10;
-							}					
-					}					
-							
-					if (filahuevo>=2 && filahuevo<=14)	{
+								puntaje=puntaje +10;
+							}
+					}		
+					if(filahuevo==1) {
+							if (!validarCeldaH(filahuevo, columnahuevo) || (!validarCeldaH(filahuevo+1, columnahuevo) 
+								 && !validarCeldaH(filahuevo-1, columnahuevo))) {
+									
+								System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
+								puntaje=puntaje+10;
+							}
+					}
+					if (filahuevo>=2 && filahuevo<=12)	{
 										
-						if((!validarCeldaH(filahuevo, columnahuevo) && !validarCeldaH(filahuevo-1, columnahuevo)) 
-								 && (!validarCeldaH(filahuevo-2, columnahuevo))) {
-							
+						if((!validarCeldaH(filahuevo, columnahuevo) || (!validarCeldaH(filahuevo+1, columnahuevo)) 
+								 && (!validarCeldaH(filahuevo+2, columnahuevo))) ||(!validarCeldaH(filahuevo, columnahuevo) 
+										 || (!validarCeldaH(filahuevo-1, columnahuevo))  && (!validarCeldaH(filahuevo-2, columnahuevo))) ) {
+						
 							System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
-							puntaje+=10;
+							puntaje=puntaje+10;
 						}						
 					}
-					
+					if (filahuevo>12 && filahuevo<=14)	{
+						
+						if((!validarCeldaH(filahuevo, columnahuevo) || (!validarCeldaH(filahuevo-1, columnahuevo)) 
+								 && (!validarCeldaH(filahuevo-2, columnahuevo)))) {
+							
+							System.out.println("ELIMINASTE UNA KROMI! SUMAS 10 PUNTOS EXTRA!");
+							puntaje=puntaje+10;
+						}
+					}
 		}			
 			 
-		else  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
-		   System.out.println("");			
-						
+		else {  System.out.println("FALLASTE!! INTENTALO DE NUEVO...");
+					
+				if (!validarCeldaH(filahuevo, columnahuevo)) {
+					System.out.println("YA ATACASTE ESTA POSICION :(");
+					
+				}
+				
+		}	
+		
+			Huevo huevo1=new Huevo(puntaje, filahuevo, columnahuevo);
+			proyectiles.add(huevo1);			//GUARDAMOS EL HUEVO EN EL ARRAY
+		
 			matriztablero[filahuevo][columnahuevo]='H';
 			mostrarMatrizactualizada(filahuevo, columnahuevo,true);
 			
@@ -359,8 +364,6 @@ public void lanzarHuevo() { //CREA INSTANCIA CLASE HUEVO Y PIDE COORD DE LANZAMI
 	public char [][] getMatrizghost() {
 		return matrizghost;
 	}
-	
-	
 	
 	
 }//FIN CLASE
